@@ -1,9 +1,10 @@
-# MyToDoApp
+# ToDoApp
 
-Welcome to MyToDoApp! This Android application is designed to help users manage their tasks effectively. Whether you're organizing work assignments, personal chores, or shopping lists, MyToDoApp has got you covered.
+### Welcome to ToDoApp! This Android application is designed to help users manage their tasks effectively. Whether you're organizing work assignments, personal chores, or shopping lists, ToDoApp has got you covered.
 
 <img src="https://github.com/udaykiran1729/TO_DO_App/assets/95089032/38828bf6-9ddf-4cdb-aae0-5079dc757447" width="240" height="500">
 <img src="https://github.com/udaykiran1729/TO_DO_App/assets/95089032/d156458a-e404-4b0f-8807-ba2244aefd64" width="240" height="500">
+<br><br>
 
 # Features
 ## 1. Task Management
@@ -35,19 +36,22 @@ Welcome to MyToDoApp! This Android application is designed to help users manage 
 
 ## 2. Categorization and Priority
 
-  Category-Based Organization: Categorize tasks into groups such as Work, Personal, Shopping, etc.
+  #### Category-Based Organization: Categorize tasks into groups such as Work, Personal, Shopping, etc.
 
-  Priority Levels: Assign priority levels (Low, Medium, High) to tasks for better organization.
+  #### Priority Levels: Assign priority levels (Low, Medium, High) to tasks for better organization.
   <br><br><br>
 ## 3. Task Status
 
-  Task Status Tracking: Mark tasks as New, In Progress, or Completed to track their progress easily.<br><br><br>
+  #### Task Status Tracking: Mark tasks as New, In Progress, or Completed to track their progress easily. The border of each task is dependent on its respective status. (Completed-green, New-Red and In Process-Yellow)
+  
+  <br><br><br>
 
 
 ## 4. Categorisation and Sort:
 
   #### The User can categorise and view the tasks under his/her desired category using the drop-down list at the top right corner of the screen.
   
+
   <img src="https://github.com/udaykiran1729/TO_DO_App/assets/95089032/021fb6dc-b3b8-4427-9ba4-d38995bd52f1" width="240" height="500">
   <br><br>
   
@@ -56,15 +60,19 @@ Welcome to MyToDoApp! This Android application is designed to help users manage 
   <img src="https://github.com/udaykiran1729/TO_DO_App/assets/95089032/d419a73c-10a4-4907-b385-12480b754a25" width="240" height="500">
 
   <img src="https://github.com/udaykiran1729/TO_DO_App/assets/95089032/1aad5a57-e503-4f22-b6a8-6a967e4715b3" width="240" height="500">
+  
+  <img src="https://github.com/udaykiran1729/TO_DO_App/assets/95089032/17b4ba5f-9107-45fb-82ca-9e49deb42eac" width="240" height="500">
   <br><br><br>
   
 ## 5. Local Storage
 
-  Use local storage (SQLite database) to store tasks, ensuring they are saved even after app closure.
+  #### Use local storage (SQLite database) to store tasks, ensuring they are saved even after app closure.
 
 # Set-Up process
   
-  The users can download the APK file in <a href="https://github.com/udaykiran1729/TO_DO_App/releases/tag/Tempomy1.0"> 
+  #### The users can download the APK file for Android users and the zip files for developers in [Here](https://github.com/udaykiran1729/TO_DO_App/releases/tag/Tempomy1.0) 
+  
+  #### , or you can find the **releases** in the right side panel by clicking it.
     
 
 
