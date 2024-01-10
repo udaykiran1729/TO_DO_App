@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">ToDo</string>
+    <string-array name="category_array">
+        <item>Filter</item>
+        <item>Date</item>
+        <item>Status</item>
+        <item>Priority</item>
+    </string-array>
+    <string-array name="categories">
+        <item>All Categories</item>
+        <item>College/Work</item>
+        <item>Personal</item>
+        <item>Households</item>
+        <item>Banking/Transactions</item>
+        <item>Events</item>
+        <item>Other</item>
+    </string-array>
 </resources>

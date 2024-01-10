@@ -26,7 +26,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/buenard_bold"
-            android:text="Add a task"
+            android:text="Edit Task"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             tools:ignore="MissingPrefix" />
@@ -38,7 +38,7 @@
             android:layout_marginTop="10dp"
             android:alpha="1"
             android:fontFamily="cursive"
-            android:text="Fill the details"
+            android:text="Edit details"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="18sp"
@@ -53,6 +53,7 @@
             tools:ignore="MissingPrefix" />
 
         <EditText
+            android:id="@+id/title"
             android:textSize="14sp"
             fontPath="fonts/nunito_light.ttf"
             android:layout_width="match_parent"
@@ -61,7 +62,6 @@
             android:layout_marginTop="5dp"
             android:singleLine="true"
             android:padding="10dp"
-            android:id="@+id/title"
             tools:ignore="MissingPrefix" />
 
         <TextView
@@ -170,7 +170,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addTask"
-            android:text="Add task"
+            android:text="Update task"
             android:backgroundTint="#183D3D"
             android:textColor="@color/colorPrimary"
             android:layout_marginTop="40dp" />

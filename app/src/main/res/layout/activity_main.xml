@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="20dp"
+    android:paddingRight="5dp"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
-    android:paddingLeft="20dp"
-    tools:context=".activity.MainActivity">
+    android:paddingLeft="5dp"
+    tools:context=".MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -22,32 +22,51 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="To Do"
                 android:layout_marginTop="20dp"
+                android:text="To Do"
                 android:textColor="@color/colorAccent"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <TextView
+                fontPath="fonts/nunito_extra_bold.ttf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="All tasks"
-                fontPath="fonts/nunito_extra_bold.ttf"
-                android:textStyle="bold"
+                android:id="@+id/dyn_text"
                 android:textColor="@color/colorAccent"
                 android:textSize="28sp"
+                android:textStyle="bold"
                 tools:ignore="MissingPrefix" />
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right|center"
-            android:background="@drawable/calendar"
-            android:id="@+id/calendar"/>
 
     </FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom">
 
+        <Spinner
+            android:id="@+id/category"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@+id/sort"
+            android:entries="@array/categories" />
+
+        <Spinner
+            android:id="@+id/sort"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right|bottom"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="0dp"
+            android:entries="@array/category_array" />
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,34 +77,63 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:id="@+id/noDataImage"
-                android:layout_gravity="center"/>
-
-            <androidx.recyclerview.widget.RecyclerView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/recycle"/>
+                android:orientation="vertical"
+                android:id="@+id/layout"
+                android:visibility="gone"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/notask"
+                    android:layout_marginTop="100dp"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/notask"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/maven_pro_bold"
+                    android:text="No Tasks"
+                    android:textAlignment="center"
+                    android:textSize="50sp" />
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
 
         </FrameLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:text="Add Task"
-            android:drawablePadding="10dp"
-            android:paddingTop="10dp"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addTask"
+            android:layout_width="110dp"
+            android:layout_height="295dp"
             android:layout_gravity="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:drawableLeft="@drawable/ic_add_black_24dp"
-            android:textAlignment="center"
-            android:layout_weight="0.5"
-            android:layout_marginBottom="20dp"/>
+            android:layout_weight="1"
+            android:clickable="true"
+            android:backgroundTint="#183D3D"
+            android:src="@drawable/add"/>
+
+
+        <!--            <ImageButton-->
+        <!--                android:id="@+id/addTask"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginBottom="20dp"-->
+        <!--                android:padding="10dp"-->
+        <!--                android:src="@drawable/add"-->
+        <!--                android:textAlignment="center" />-->
 
     </LinearLayout>
 

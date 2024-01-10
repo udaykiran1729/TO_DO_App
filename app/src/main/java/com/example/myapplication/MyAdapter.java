@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public Context context;
-    private ArrayList<String> titles,date,day,time,desc,status,urg;
+    private ArrayList<String> titles,date,day,month,desc,status,urg,cat;
     DBHelper db;
 
 
@@ -31,15 +32,16 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //        this.date = date;
 //    }
 
-    public MyAdapter(Context context, ArrayList<String> title, ArrayList<String> date, ArrayList<String> day, ArrayList<String> time, ArrayList<String> desc, ArrayList<String> status, ArrayList<String> urg) {
+    public MyAdapter(Context context, ArrayList<String> title, ArrayList<String> date, ArrayList<String> day, ArrayList<String> month, ArrayList<String> desc, ArrayList<String> status, ArrayList<String> urg,ArrayList<String> cat) {
         this.context = context;
         this.titles = title;
         this.date = date;
         this.day = day;
-        this.time = time;
+        this.month = month;
         this.desc = desc;
         this.status = status;
         this.urg = urg;
+        this.cat=cat;
     }
 
     @NonNull
@@ -56,9 +58,43 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.desc.setText(desc.get(position));
         holder.date.setText(date.get(position));
         holder.day.setText(day.get(position));
-        holder.time.setText(time.get(position));
+//        holder.time.setText(time.get(position));
+        holder.month.setText(month.get(position));
         holder.urg.setText(urg.get(position));
         holder.status.setText(status.get(position));
+        holder.cat.setText(cat.get(position));
+
+        switch (urg.get(position)) {
+            case "LOW":
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.lowPriorityColor));
+                break;
+            case "MEDIUM":
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.mediumPriorityColor));
+                break;
+            case "HIGH":
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.highPriorityColor));
+                break;
+            default:
+                // Set default color or handle other cases
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.defaultColor));
+                break;
+        }
+
+        switch (status.get(position)) {
+            case "Not Completed":
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.statusNewColor));
+                break;
+            case "Partially Completed":
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.statusInProgressColor));
+                break;
+            case "Completed":
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.statusCompletedColor));
+                break;
+            default:
+                // Set default color or handle other cases
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.defaultColor));
+                break;
+        }
     }
 
     @Override
@@ -68,7 +104,7 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView title,desc,month,date,day,time,status,urg;
+        TextView title,desc,month,date,day,time,status,urg,cat;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -78,27 +114,47 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             month=itemView.findViewById(R.id.month);
             date=itemView.findViewById(R.id.date);
             day=itemView.findViewById(R.id.day);
-            time=itemView.findViewById(R.id.time);
+//            time=itemView.findViewById(R.id.time);
             status=itemView.findViewById(R.id.status);
             urg=itemView.findViewById(R.id.urgency);
+            cat=itemView.findViewById(R.id.category);
             itemView.findViewById(R.id.delete).setOnClickListener(view -> {
                 db=new DBHelper(context);
                 AlertDialog.Builder builder=new AlertDialog.Builder(context);
                 builder.setMessage("Are You sure?");
                 builder.setCancelable(false);
-                builder.setPositiveButton("Yes", (DialogInterface.OnClickListener)(dialog,which)->{
-                    Boolean m=db.deleteuserdata(titles.get(getAdapterPosition()));
+                builder.setPositiveButton("Yes", (dialog, which)->{
+                    int ind=getAdapterPosition();
+                    Boolean m=db.deleteuserdata(titles.get(ind));
                     if (m){
+                        titles.remove(ind);MyAdapter.this.date.remove(ind);MyAdapter.this.day.remove(ind);MyAdapter.this.month.remove(ind);
+                        MyAdapter.this.desc.remove(ind);MyAdapter.this.status.remove(ind);MyAdapter.this.urg.remove(ind);MyAdapter.this.cat.remove(ind);
                         Toast.makeText(context, "Items Removed", Toast.LENGTH_SHORT).show();
-//                        main_page rel= new main_page();
-//                        rel.reload();
+
+                        notifyItemRemoved(ind);
+                        notifyItemRangeChanged(ind, titles.size());
                     }
                 });
-                builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                builder.setNegativeButton("No", (dialog, which) -> {
                     dialog.cancel();
                 });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+            });
+
+            itemView.findViewById(R.id.edit).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    db=new DBHelper(context);
+                    int ind=getAdapterPosition();
+
+                    Intent intent = new Intent(context,Update.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("title",titles.get(ind));
+                    context.startActivity(intent);
+                    notifyItemChanged(ind);
+                    notifyItemRangeChanged(ind,titles.size());
+                }
             });
         }
 

@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardUseCompatPadding="true"
-    app:cardElevation="5dp"
+    android:layout_margin="5dp"
+    app:cardElevation="10dp"
     app:cardCornerRadius="10dp"
-    app:contentPadding="10dp"
-    android:layout_height="150dp">
+    app:contentPadding="2dp"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,6 +23,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <TextView
@@ -30,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:alpha="0.5"
+                android:alpha="0.7"
                 android:text="Urgent"
                 android:textColor="@android:color/black"
                 android:textSize="12sp" />
@@ -51,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="17"
-                android:textColor="#F8F5F8"
+                android:textColor="#000000"
                 android:textSize="20sp" />
 
             <TextView
@@ -65,7 +66,6 @@
                 android:textSize="18sp" />
 
 
-
         </LinearLayout>
 
         <View
@@ -76,8 +76,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.19"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -88,58 +88,66 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    tools:text="Full house"
-                    android:singleLine="true"
-                    android:textSize="20sp"
                     android:layout_weight="1"
-                    android:id="@+id/title"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/buenard_bold"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    tools:text="Full house" />
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:id="@+id/delete"
-                    android:background=""
+                    android:background="#F9F3CC"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/delete"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/edit"
+                    android:background="#F9F3CC"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/baseline_edit_24"/>
 
             </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/category"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Full House is the Grand prize in any Tambola game played. It means all 15 Numbers of a ticket are cut, striked out"
-                android:singleLine="true"
-                android:alpha="0.5"
+                android:fontFamily="@font/roboto_italic"
+                android:text="category" />
+
+            <TextView
                 android:id="@+id/description"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text=""
-                android:singleLine="true"
-                android:alpha="0.5"
-                android:id="@+id/time"
-                android:textSize="12sp"
-                android:textColor="@android:color/black"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:alpha="0.9"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Full House is the Grand prize in any Tambola game played. It means all 15 Numbers of a ticket are cut, striked out"
                 android:textColor="@android:color/black"
-                android:text="COMPLETED"
-                android:textSize="12sp"
+                android:textSize="16sp" />
+
+
+            <TextView
                 android:id="@+id/status"
-                android:layout_gravity="right"
-                android:layout_marginTop="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-medium"
+                android:paddingTop="3dp"
+                android:text="COMPLETED"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
 
         </LinearLayout>
 

@@ -1,0 +1,51 @@
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".splash_screen">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:fontFamily="@font/capriola"
+            android:textSize="25dp"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:text="Welcome to"
+            android:textColor="@color/black" />
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="20dp"
+            >
+
+            <TextView
+                android:id="@+id/quo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Time is Relative, It's only worth depends upon what we do as it is passing"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/eni" />
+
+            <TextView
+                android:id="@+id/eni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/quo"
+                android:textStyle="italic"
+                android:text="-Albert Einsiten"
+                android:textAlignment="viewEnd" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
