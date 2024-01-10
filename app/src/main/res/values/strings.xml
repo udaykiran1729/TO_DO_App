@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ToDo</string>
+    <string name="app_name">To Do</string>
     <string-array name="category_array">
         <item>Filter</item>
         <item>Date</item>
